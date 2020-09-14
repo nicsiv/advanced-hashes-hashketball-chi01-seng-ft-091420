@@ -177,19 +177,28 @@ def player_numbers(input)
   return output
 end
 
-def player_stats(name) 
-  player_hash = {}
-  game_hash.each do |team_position, team_data|
-   team_data[:players].each do |player_name, player_data|
-     if player_name == name 
-       return player_data
-       elsif player_name =! name
-      return nil
-    end
- end
-end
-end
+#def player_stats(name) 
+  #player_hash = {}
+  #game_hash.each do |team_position, team_data|
+   #team_data[:players].each do |player_name, player_data|
+     #if player_name == name 
+       #return player_data
+       #elsif player_name =! name
+      #return nil
+    #end
+ #end
+#end
+#end
 
+def player_stats(player_name)
+  game_hash.each do |location, team_data|
+    team_data[:players].each do |player_stats|
+      if player_stats[:player_name] == player_name
+        return player_stats
+      end
+    end
+  end
+end 
 
 def big_shoe_rebounds
   big_shoe = 0
